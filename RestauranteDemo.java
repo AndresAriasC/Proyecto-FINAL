@@ -1,84 +1,40 @@
 package proyectorestaurante;
-
+import proyectorestaurante.Menu;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class RestauranteDemo {
+public class RestauranteDemo extends Menu{
 
 	public static void main(String[] args) {
 		
+		  byte opPlatillo, opPlatillo2;
+		  float total = 0;
+		  String lista = "";	
 		
 		Scanner entrada = new Scanner(System. in);
 		Mesero mes1 = new Mesero();
 		Mesa mesita = new Mesa();
-		
-		  byte opPlatillo, opPlatillo2;
-		  float total = 0;
-		  String lista = "";
-		  
-		  //posicion de la mesa
-		  System.out.println("");
-		  
-		  
-		//se crea al mesero que va a atender
-		  mes1.setNombre("Andres");
-		  mes1.setNombreRestaurante("Currucuchitos");
-		  String nombreRestaurante = mes1.getNombreRestaurante();
-		  String nombreMesero = mes1.getNombre();
+		Menu men = new Menu();
+		Platos pl = new Platos();
+
+
 		  System.out.println(mes1);
-		  System.out.println("Hola, bienvenido a " + nombreRestaurante + " Restaurant. \nLe atiende: " + nombreMesero + ". \nQue desea ordenar? \n");
 		  
-
+	
 		  do{
-		System.out.println("     |---------------------------------------------------------------------------------------------|");
-		System.out.println("     |----------------------------       C U R R U CU C H I T O S       ---------------------------|");
-		System.out.println("     |_____________________________________________________________________________________________|\n");
-		System.out.println("     |   M E N U:                                                                                  |\n"+
-		"     |           1- Entradas\n"+
-		"     |                    1- Dedos de queso ------------------------------------------------ C$60  |\n"+
-		"     |                    2- Guacamole ----------------------------------------------------- C$30  |\n"+
-		"     |                    3- Papas a la francesa ------------------------------------------- C$50  |\n"+    
-		"     |           2- Sopas\n"+
-		"     |                    1- Verduras ------------------------------------------------------ C$30  |\n"+
-		"     |                    2- Fideos ---------------------------------------------------------C$30  |\n"+ 
-		"     |           3- Plato fuerte\n"+
-		"     |                    1- Pechuga de pollo empanizada ---------------------------------- C$120  |\n"+
-		"     |                    2- Hamburguesa de carne de res ----------------------------------- C$90  |\n"+
-		"     |                    3- Ensalada ------------------------------------------------------ C$40  |\n"+
-		"     |           4- Postres C$60\n"+
-		"     |                    1- Helado (Vainilla/Chocolate/Fresa)-------------------------------C$60  |\n"+
-		"     |                    2- Flan napolitano ----------------------------------------------- C$60  |\n"+
-		"     |                    3- Fresas con crema ---------------------------------------------- C$60  |\n"+
-		"     |                    4- Platanos fritos ----------------------------------------------- C$60  |\n"+
-		"     |           5- Bebidas\n"+
-		"     |                    1- Naranja ------------------------------------------------------- C$35  |\n"+
-		"     |                    2- Malteada ------------------------------------------------------ C$35  |\n"+
-		"     |                    3- Grama --------------------------------------------------------- C$35  |\n"+
-		"     |                    4- Cacao --------------------------------------------------------- C$40  |\n"+
-		"     |                    5- Cerveza ------------------------------------------------------- C$45  |\n"+
-		"     |           6- Terminar pedido\n"+
-		"     |                    1- Efectivo                                                              |\n"+
-		"     |                    2- Tarjeta                                                               |\n");
-		System.out.println("     |---------------------------------------------------------------------------------------------|");
-
-		System.out.println("     |_____________________________________________________________________________________________|\n");
-
+				MenuPlatillos();
 
 		System.out.println("Seleccione una opcion: ");
 		opPlatillo = entrada.nextByte();
 
 		switch(opPlatillo){
 		   case 1:
-			System.out.println("     ------------------------------------------");
-				System.out.println(
-				      "    | 1- Dedos de queso ---------------- C$60  |\n"+
-		    		      "    | 2- Guacamole --------------------- C$30  |\n"+
-		    		      "    | 3- Papas a la francesa ----------- C$50  |");
-			System.out.println("     ------------------------------------------");
-				
+				entradas();
 				System.out.println("Entrada: ");
 				opPlatillo2 = entrada.nextByte();
 
 				if(opPlatillo2 == 1){
+					System.out.println(men.getNombrePlatillo() + men.getPrecio());
 		 			lista += "|  Dedos de queso ---------------- C$60  |\n";
 					total += 60;
 		      		}else if(opPlatillo2 == 2){

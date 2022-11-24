@@ -4,8 +4,8 @@ package proyectorestaurante;
 */
 public class Mesero {
 
-	private String nombre;
-	private String nombreRestaurante;
+	private String nombre = "Andres";
+	private String nombreRestaurante = "Currucuchitos";
 	
 //getter and setters
 	
@@ -28,7 +28,7 @@ public class Mesero {
 	
 	@Override
 	public String toString() {
-		return "Hola, bienvenido a " +nombreRestaurante+ " soy " + nombre + ", su asistente virtual";
+		return "Hola, bienvenido a " + nombreRestaurante + " Restaurant. \nLe atiende: " + nombre + ". \nQue desea ordenar? \n";
 	}
 	
 	
